@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amor ex corde - Products</title>
+    <link rel="stylesheet" href="styles2.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For cart icon -->
+    <script src="cart.js"></script>
+    <link rel="cart" href="cart.html">
+    <link rel="invoice" href="invoice.html">
+    <body>
+    <header>
+        <div class="logo">
+            <h1>Amor ex Corde</h1>
+            <p>Odor movens te</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="customization.html">Custom</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <!-- Shopping cart-->
+    <div id="cart">
+    <i class="fa fa-shopping-cart" onclick="showCart()"></i> <span id="cart-count">0</span>
+    </div>
+
+    <!-- Main Products Section -->
+    <main>
+        <!-- Floral Scents Section -->
+        <section id="floral-scents">
+            <h2>Floral Scents</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="../Assets/FloralProduct1.webp" alt="Floral Perfume 1">
+                    <p>Flora - $14500.00 </p>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/perfume 4.webp" alt="Floral Perfume 2">
+                    <p>Rose' - $15000.00</p>
+                    <button onclick="addToCart(2)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/FloralProduct2.webp" alt="Floral Perfume 3">
+                    <p>Malibu - $16000.00</p>
+                    <button onclick="addToCart(3)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Citrus Scents Section -->
+        <section id="citrus-scents">
+            <h2>Citrus Scents</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="../Assets/citrus1.webp" alt="Citrus Perfume 1">
+                    <p>Lemon Lust - $14000.00</p>
+                    <button onclick="addToCart(4)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/citrus2.webp" alt="Citrus Perfume 2">
+                    <p>Orange Zest - $14500.00</p>
+                    <button onclick="addToCart(5)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/citrus3.webp" alt="Citrus Perfume 3">
+                    <p>Malibu - $15000.00</p>
+                    <button onclick="addToCart(6)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wood Scents Section -->
+        <section id="wood-scents">
+            <h2>Wood Scents</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="../Assets/earthy.png" alt="Wood Perfume 1">
+                    <p>Burberry - $25500.00</p>
+                    <button onclick="addToCart(7)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/earthy2.webp" alt="Wood Perfume 2">
+                    <p>Bleu Dreams - $16000.00</p>
+                    <button onclick="addToCart(8)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="../Assets/earthy3.avif" alt="Wood Perfume 3">
+                    <p>Earth's Essence - $26500.00</p>
+                    <button onclick="addToCart(9)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Rights reserved by Audrianna Crawford | <a href="mailto:2302665@utech.edu.jm">Contact Us</a></p>
+    </footer>
+
+   </body>
+</html>
