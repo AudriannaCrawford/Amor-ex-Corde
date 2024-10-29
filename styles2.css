@@ -1,0 +1,127 @@
+    /* Global Styles */
+    body {
+        font-family:'Georgia', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        color: #333;
+    }
+
+    /* Header Styling */
+    .header, header {
+        background-color: #624627;
+        font-family: Irish Grover;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    .header h1, header h1 {
+        margin: 0;
+        font-family: Irish Grover;
+    }
+    .header p, header p {
+        margin: 0;
+        font-size: 14px;
+        font-family: Irish Grover;
+    }
+
+    /* Navigation Styling */
+    .nav {
+        margin-right: 20px;
+    }
+    .nav a, nav ul li a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .nav a:hover, nav ul li a:hover {
+        text-decoration: underline;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin-left: 15px;
+    }
+
+        .info h2 {
+        background-color: rgba(139, 94, 52, 0.8); /* semi-transparent overlay */
+        padding: 20px;
+        display: inline-block;
+        color: #000;
+    }
+
+    /* About Us Section */
+    .about-text {
+        background-color: rgba(139, 94, 52, 0.8);
+        padding: 20px;
+        color: #000;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-top: 20px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+    .product {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        text-align: center;
+    }
+    .product img {
+        width: 100%;
+        height:auto;
+        border-bottom: 1px solid #ddd;
+    }
+    .product p {
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .product button {
+        background-color: #624627;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Cart Icon */
+    #cart {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 20px;
+        color: black;
+    }
+    #cart span {
+        background-color: red;
+        border-radius: 50%;
+        padding: 3px 7px;
+        color: white;
+        font-size: 12px;
+    }
+
+    /* Footer Styling */
+    .footer, footer {
+        background-color: #624627;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        bottom: 0;
+        width: 100%;
+    }
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customization - Amor ex Corde</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- For cart icon -->
+    <script src="cart.js"></script>
+    <link rel="cart" href="cart.html">
+    <link rel="invoice" href="invoice.html">
+    <style>
+        /* Customization Section */
+        .customization {
+            padding: 20px;
+            text-align: center;
+            background-color: #dfd0c0;
+        }
+
+        .customization h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .bottle-selection, .scent-selection {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .bottle {
+            text-align: center;
+        }
+
+        .bottle img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            border: 2px solid #624627;
+            cursor: pointer;
+        }
+
+        .bottle label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .scent-selection {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .scent-option {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+        <div class="logo">
+            <h1>Amor ex Corde</h1>
+            <p>Odor movens te</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="product.html">Shop</a></li>
+                <li><a href="customization.html">Custom</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Customization Section -->
+    <div class="customization">
+        <h2>Pick Your Bottle Style</h2>
+        <div class="bottle-selection">
+            <div class="bottle">
+                <img src="../Assets/bottle.jpg" alt="Bloom">
+                <label><input type="radio" name="bottle" value="Bloom"> Bloom</label>
+            </div>
+            <div class="bottle">
+                <img src="../Assets/bottle 5.jpg" alt="Crescent">
+                <label><input type="radio" name="bottle" value="Crescent"> Crescent</label>
+            </div>
+            <div class="bottle">
+                <img src="../Assets/bottle 2.jpg" alt="Reality">
+                <label><input type="radio" name="bottle" value="Reality"> Reality</label>
+            </div>
+            <div class="bottle">
+                <img src="../Assets/bottle 4.jpg" alt="Ocean">
+                <label><input type="radio" name="bottle" value="Ocean"> Ocean</label>
+            </div>
+            <div class="bottle">
+                <img src="../Assets/bottle 3.jpg" alt="Ignite">
+                <label><input type="radio" name="bottle" value="Ignite"> Ignite</label>
+            </div>
+        </div>
+
+        <h2>Pick Your Scent</h2>
+        <div class="scent-selection">
+            <div class="scent-option">
+                <input type="checkbox" id="fresh" name="scent" value="Fresh">
+                <label for="fresh">Fresh</label>
+            </div>
+            <div class="scent-option">
+                <input type="checkbox" id="floral" name="scent" value="Floral">
+                <label for="floral">Floral</label>
+            </div>
+            <div class="scent-option">
+                <input type="checkbox" id="vanilla" name="scent" value="Vanilla">
+                <label for="vanilla">Vanilla</label>
+            </div>
+            <div class="scent-option">
+                <input type="checkbox" id="coconut" name="scent" value="Coconut">
+                <label for="coconut">Coconut</label>
+            </div>
+            <div class="scent-option">
+                <input type="checkbox" id="woody" name="scent" value="Woody">
+                <label for="woody">Woody</label>
+            </div>
+        </div>
+
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <div id="cart">
+        <i class="fa fa-shopping-cart" onclick="showCart()"></i> <span id="cart-count">0</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        @ Audrianna Crawford 2302665
+    </div>
+
+    <script>
+        let cartCount = 0;
+        const customPrice = 30000; // Fixed price for custom products
+
+        // Add item to cart
+        function addToCart() {
+            const selectedBottle = document.querySelector('input[name="bottle"]:checked');
+            const selectedScents = document.querySelectorAll('input[name="scent"]:checked');
+            
+            if (!selectedBottle || selectedScents.length === 0) {
+                alert('Please select a bottle and at least one scent.');
+                return;
+            }
+
+            // Gather selected scents into an array
+            const selectedScentsArray = [];
+            selectedScents.forEach(scent => {
+                selectedScentsArray.push(scent.value);
+            });
+
+            // Create the custom product object
+            const customProduct = {
+                product: {
+                    name: `${selectedBottle.value} Custom Perfume`,
+                    price: customPrice,
+                    scents: selectedScentsArray
+                },
+                qty: 1
+            };
+
+            // Store the custom product in localStorage cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(customProduct);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update cart count display
+            cartCount = cart.length;
+            document.getElementById('cart-count').textContent = cartCount;
+
+            alert('Customization added to cart for $30,000!');
+        }
+
+        // Load the cart count on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cartCount = cart.length;
+            document.getElementById('cart-count').textContent = cartCount;
+        });
+
+        // Function to show the cart (can be extended)
+        function showCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContents = cart.map((item, index) => {
+                return `${index + 1}. ${item.product.name} - $${item.product.price} - Scents: ${item.product.scents.join(', ')}`;
+            }).join("\n");
+
+            alert(cartContents || "Your cart is empty.");
+        }
+    </script>
+
+</body>
+</html>
+
